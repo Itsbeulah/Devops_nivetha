@@ -1,0 +1,10 @@
+stages:
+  -test
+
+test -job:
+    stage: test 
+    script:
+      -echo "Installing Node.js"
+      -apt -get update && apt get install -y nodejs npm
+      -npm install
+      -npm test

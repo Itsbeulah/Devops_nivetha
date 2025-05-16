@@ -1,9 +1,17 @@
+# Use official Node.js base image
 FROM node:18-alpine
 
-WORKDIR/app
+# Set working directory
+WORKDIR /app
 
+# Copy only package files first (for better layer caching)
 COPY package*.json ./
-COPY app.js .
-COPY test.js .
+
+# Install dependencies
 RUN npm install
-CMD["npm", "test"]
+
+# Copy the rest of the application
+COPY . .
+
+# Default command to run tests
+CMD ["npm", "test"]

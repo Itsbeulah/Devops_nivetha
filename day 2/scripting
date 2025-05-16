@@ -1,0 +1,7 @@
+#!/bin/bash 
+today=$(date +%F) 
+base_dir="$HOME/Documents/Notes/$today" 
+mkdir -p "$base_dir" 
+touch "$base_dir/notes.txt" 
+notepad "$base_dir/notes.txt" 
+echo "Your daily notes are ready at $base_dir/notes.txt
